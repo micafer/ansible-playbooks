@@ -1,0 +1,18 @@
+# Configuracion del ntp
+- name: Yum install ntp
+  action: yum pkg=ntp state=installed
+  only_if: $redhat_os
+
+- name: Apt install ntp
+  action: apt pkg=ntp state=installed
+  only_if: $debian_os
+  
+- name: configure step-tickers
+  action: template src=ntp/templates/step-tickers dest=/etc/ntp/step-tickers owner=root group=root
+  notify:
+      - restart ntp
+  
+- name: configure ntp.conf
+  action: template src=ntp/templates/ntp.conf dest=/etc/ntp.conf owner=root group=root
+  notify:
+      - restart ntp
