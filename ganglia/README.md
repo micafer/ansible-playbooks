@@ -1,4 +1,4 @@
-ansible-playbooks
-=================
+Ganglia ansible-playbooks
+=========================
 
-Collection of ansible playbooks for general taks
+Installs and configure Ganglia monitoring system in a cluster of nodes.
