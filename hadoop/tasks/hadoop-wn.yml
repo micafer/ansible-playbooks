@@ -1,0 +1,26 @@
+- include: hadoop.yml
+
+- template: src=hadoop/templates/hadoop-env.sh dest=${hadoop_home}/conf/hadoop-env.sh owner=root group=root
+  notify:
+   - restart hadoop-datanode
+   - restart hadoop-tasktracker
+
+- template: src=hadoop/templates/mapred-site.xml dest=${hadoop_home}/conf/mapred-site.xml owner=root group=root
+  notify:
+   - restart hadoop-datanode
+   - restart hadoop-tasktracker
+
+- template: src=hadoop/templates/core-site.xml dest=${hadoop_home}/conf/core-site.xml owner=root group=root
+  notify:
+   - restart hadoop-datanode
+   - restart hadoop-tasktracker
+
+- template: src=hadoop/templates/masters dest=${hadoop_home}/conf/masters owner=root group=root
+  notify:
+   - restart hadoop-datanode
+   - restart hadoop-tasktracker
+
+- template: src=hadoop/templates/slaves dest=${hadoop_home}/conf/slaves owner=root group=root
+  notify:
+   - restart hadoop-datanode
+   - restart hadoop-tasktracker

@@ -1,0 +1,1 @@
+<configuration><property><name>fs.default.name</name><value>hdfs://{{ IM_MASTER_FQDN }}:9000</value></property></configuration>

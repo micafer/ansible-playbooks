@@ -1,0 +1,5 @@
+{% for host in groups['all'] %}
+{{ hostvars[host]['IM_NODE_FQDN'] }}
+{% endfor %}
+
+

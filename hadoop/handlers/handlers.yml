@@ -1,0 +1,19 @@
+- name: restart hadoop-dfs
+  action: shell ${hadoop_home}/bin/hadoop-daemon.sh --config ${hadoop_home}/conf stop namenode; ${hadoop_home}/bin/hadoop-daemon.sh --config ${hadoop_home}/conf start namenode
+  
+- name: restart hadoop-mapred
+  action: shell ${hadoop_home}/bin/hadoop-daemon.sh --config ${hadoop_home}/conf stop jobtracker; ${hadoop_home}/bin/hadoop-daemon.sh --config ${hadoop_home}/conf start jobtracker
+  
+- name: restart hadoop-datanode
+  action: shell ${hadoop_home}/bin/hadoop-daemon.sh --config ${hadoop_home}/conf stop datanode; ${hadoop_home}/bin/hadoop-daemon.sh --config ${hadoop_home}/conf start datanode
+  
+- name: restart hadoop-tasktracker
+  action: shell ${hadoop_home}/bin/hadoop-daemon.sh --config ${hadoop_home}/conf stop tasktracker; ${hadoop_home}/bin/hadoop-daemon.sh --config ${hadoop_home}/conf start tasktracker
+  
+- name: refreshDFSNodes
+  command: ${hadoop_home}/bin/hadoop dfsadmin -refreshNodes
+  ignore_errors: yes
+
+- name: refreshMRNodes
+  command: ${hadoop_home}/bin/hadoop mradmin -refreshNodes
+  ignore_errors: yes
