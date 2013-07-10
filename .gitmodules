@@ -4,3 +4,6 @@
 [submodule "ganglia"]
 	path = ganglia
 	url = git://github.com/micafer/ansible-playbook-ganglia.git
+[submodule "ntp"]
+	path = ntp
+	url = git://github.com/micafer/ansible-playbook-ntp.git
