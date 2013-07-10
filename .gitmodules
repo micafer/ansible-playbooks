@@ -1,3 +1,6 @@
 [submodule "hadoop"]
 	path = hadoop
 	url = git://github.com/micafer/ansible-playbook-hadoop.git
+[submodule "ganglia"]
+	path = ganglia
+	url = git://github.com/micafer/ansible-playbook-ganglia.git
