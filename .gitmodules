@@ -1,0 +1,3 @@
+[submodule "hadoop"]
+	path = hadoop
+	url = git://github.com/micafer/ansible-playbook-hadoop.git
